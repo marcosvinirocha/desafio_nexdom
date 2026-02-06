@@ -9,7 +9,7 @@ import com.marcosvinirocha.desafio_nexdom.dto.LucroProdutoResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.entity.Produto;
 
-public interface ProdutoRespository extends JpaRepository<Produto, Long> {
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     @Query("""
                 SELECT new com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueResponseDTO(

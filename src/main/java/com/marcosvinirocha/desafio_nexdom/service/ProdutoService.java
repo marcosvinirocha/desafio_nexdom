@@ -8,20 +8,22 @@ import org.springframework.stereotype.Service;
 import com.marcosvinirocha.desafio_nexdom.dto.LucroProdutoResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.entity.Produto;
-import com.marcosvinirocha.desafio_nexdom.repository.ProdutoRespository;
+import com.marcosvinirocha.desafio_nexdom.repository.ProdutoRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ProdutoService {
 
     @Autowired
-    private ProdutoRespository produtoRespository;
+    private ProdutoRepository produtoRespository;
 
     public List<Produto> findAll() {
         return produtoRespository.findAll();
     }
 
     public Produto findById(Long id) {
-        return produtoRespository.findById(id).orElse(null);
+        return produtoRespository.findById(id).orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
     }
 
     public Produto save(Produto produto) {

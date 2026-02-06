@@ -6,23 +6,21 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.marcosvinirocha.desafio_nexdom.dto.LucroProdutoResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueRequestDTO;
-import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.entity.MovimentoEstoque;
 import com.marcosvinirocha.desafio_nexdom.entity.Produto;
 import com.marcosvinirocha.desafio_nexdom.entity.enums.TipoMovimentacao;
 import com.marcosvinirocha.desafio_nexdom.exception.EstoqueInsuficienteException;
 import com.marcosvinirocha.desafio_nexdom.repository.MovimentacaoRepository;
-import com.marcosvinirocha.desafio_nexdom.repository.ProdutoRespository;
+import com.marcosvinirocha.desafio_nexdom.repository.ProdutoRepository;
 
 @Service
 public class MovimentacaoEstoqueService {
 
-    private final ProdutoRespository produtoRespository;
+    private final ProdutoRepository produtoRespository;
     private final MovimentacaoRepository movimentacaoRepository;
 
-    public MovimentacaoEstoqueService(ProdutoRespository produtoRespository,
+    public MovimentacaoEstoqueService(ProdutoRepository produtoRespository,
             MovimentacaoRepository movimentacaoRepository) {
         this.produtoRespository = produtoRespository;
         this.movimentacaoRepository = movimentacaoRepository;
