@@ -26,6 +26,17 @@ public class ProdutoService {
         return produtoRespository.save(produto);
     }
 
+    public Produto update(Long id, Produto produto) {
+        Produto produtoExistente = produtoRespository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        produtoExistente.setCodigo(produto.getCodigo());
+        produtoExistente.setDescricao(produto.getDescricao());
+        produtoExistente.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+        produtoExistente.setTipo(produto.getTipo());
+        produtoExistente.setValorFornecedor(produto.getValorFornecedor());
+        return produtoRespository.save(produtoExistente);
+    }
+
     public void delete(Long id) {
         produtoRespository.deleteById(id);
     }

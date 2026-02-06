@@ -30,6 +30,11 @@ public class ProdutoController {
         return produtoService.save(produto);
     }
 
+    @PutMapping("/{id}")
+    public Produto update(@PathVariable Long id, @RequestBody Produto produto) {
+        return produtoService.update(id, produto);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         produtoService.delete(id);

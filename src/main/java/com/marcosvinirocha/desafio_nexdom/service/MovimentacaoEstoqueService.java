@@ -1,7 +1,9 @@
 package com.marcosvinirocha.desafio_nexdom.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.marcosvinirocha.desafio_nexdom.dto.LucroProdutoResponseDTO;
@@ -14,6 +16,7 @@ import com.marcosvinirocha.desafio_nexdom.exception.EstoqueInsuficienteException
 import com.marcosvinirocha.desafio_nexdom.repository.MovimentacaoRepository;
 import com.marcosvinirocha.desafio_nexdom.repository.ProdutoRespository;
 
+@Service
 public class MovimentacaoEstoqueService {
 
     private final ProdutoRespository produtoRespository;
@@ -45,17 +48,9 @@ public class MovimentacaoEstoqueService {
         movimentoEstoque.setProdutoId(dto.produtoId());
         movimentoEstoque.setTipoMovimentacao(dto.tipoMovimentacao());
         movimentoEstoque.setValorVenda(dto.valorVenda());
-        movimentoEstoque.setDataMovimentacao(dto.dataVenda());
+        movimentoEstoque.setDataMovimentacao(LocalDateTime.now());
         movimentoEstoque.setQuantidade(dto.quantidade());
 
         movimentacaoRepository.save(movimentoEstoque);
-    }
-
-    public List<MovimentoEstoqueResponseDTO> findResumoPorTipo() {
-        return movimentacaoRepository.findResumoPorTipo();
-    }
-
-    public List<LucroProdutoResponseDTO> findLucroPorProduto() {
-        return movimentacaoRepository.findLucroPorProduto();
     }
 }
