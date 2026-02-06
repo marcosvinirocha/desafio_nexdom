@@ -1,11 +1,14 @@
 package com.marcosvinirocha.desafio_nexdom.dto;
 
-import com.marcosvinirocha.desafio_nexdom.entity.enums.TipoMovimentacao;
+import com.marcosvinirocha.desafio_nexdom.entity.enums.TipoProduto;
 
 public record MovimentoEstoqueResponseDTO(
-                TipoMovimentacao tipoMovimentacao,
+                Long produtoId,
+                String codigo,
+                String descricao,
+                TipoProduto tipo,
                 Long quantidadeTotalSaida,
-                Long quantidadeDisponivel
+                Integer quantidadeDisponivel
 
 ) {
 

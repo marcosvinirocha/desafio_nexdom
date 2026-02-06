@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.marcosvinirocha.desafio_nexdom.dto.LucroProdutoResponseDTO;
+import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.entity.Produto;
 import com.marcosvinirocha.desafio_nexdom.service.ProdutoService;
 
@@ -38,6 +40,16 @@ public class ProdutoController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         produtoService.delete(id);
+    }
+
+    @GetMapping("/resumo-por-tipo")
+    public List<MovimentoEstoqueResponseDTO> findResumoPorTipo() {
+        return produtoService.findResumoPorTipo();
+    }
+
+    @GetMapping("/lucro-por-produto")
+    public List<LucroProdutoResponseDTO> findLucroPorProduto() {
+        return produtoService.findLucroPorProduto();
     }
 
 }

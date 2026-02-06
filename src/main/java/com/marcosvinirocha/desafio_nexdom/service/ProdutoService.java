@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.marcosvinirocha.desafio_nexdom.dto.LucroProdutoResponseDTO;
+import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.entity.Produto;
 import com.marcosvinirocha.desafio_nexdom.repository.ProdutoRespository;
 
@@ -30,7 +32,6 @@ public class ProdutoService {
         Produto produtoExistente = produtoRespository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
         produtoExistente.setCodigo(produto.getCodigo());
-        produtoExistente.setDescricao(produto.getDescricao());
         produtoExistente.setQuantidadeEstoque(produto.getQuantidadeEstoque());
         produtoExistente.setTipo(produto.getTipo());
         produtoExistente.setValorFornecedor(produto.getValorFornecedor());
@@ -41,4 +42,11 @@ public class ProdutoService {
         produtoRespository.deleteById(id);
     }
 
+    public List<MovimentoEstoqueResponseDTO> findResumoPorTipo() {
+        return produtoRespository.findResumoPorTipo();
+    }
+
+    public List<LucroProdutoResponseDTO> findLucroPorProduto() {
+        return produtoRespository.findLucroPorProduto();
+    }
 }
