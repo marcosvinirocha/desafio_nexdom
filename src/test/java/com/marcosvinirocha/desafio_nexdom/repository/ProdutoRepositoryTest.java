@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -133,7 +134,7 @@ public class ProdutoRepositoryTest {
         saida.setProdutoId(produto.getId());
         saida.setTipoMovimentacao(TipoMovimentacao.SAIDA);
         saida.setQuantidade(3);
-        saida.setValorVenda(33);
+        saida.setValorVenda(BigDecimal.valueOf(33));
         movimentoRepository.save(saida);
 
         List<LucroProdutoResponseDTO> resultado = produtoRepository.findLucroPorProduto();

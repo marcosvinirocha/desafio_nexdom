@@ -1,5 +1,6 @@
 package com.marcosvinirocha.desafio_nexdom.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import com.marcosvinirocha.desafio_nexdom.entity.enums.TipoMovimentacao;
@@ -25,7 +26,7 @@ public class MovimentoEstoque {
     private Long produtoId;
 
     private TipoMovimentacao tipoMovimentacao;
-    private Integer valorVenda;
+    private BigDecimal valorVenda;
     private LocalDateTime dataMovimentacao;
     private Integer quantidade;
 
@@ -36,7 +37,7 @@ public class MovimentoEstoque {
     public MovimentoEstoque() {
     }
 
-    public MovimentoEstoque(Long id, Long produtoId, TipoMovimentacao tipoMovimentacao, Integer valorVenda,
+    public MovimentoEstoque(Long id, Long produtoId, TipoMovimentacao tipoMovimentacao, BigDecimal valorVenda,
             LocalDateTime dataMovimentacao, Integer quantidade) {
         this.id = id;
         this.produtoId = produtoId;
@@ -70,11 +71,11 @@ public class MovimentoEstoque {
         this.tipoMovimentacao = tipoMovimentacao;
     }
 
-    public Integer getValorVenda() {
+    public BigDecimal getValorVenda() {
         return valorVenda;
     }
 
-    public void setValorVenda(Integer valorVenda) {
+    public void setValorVenda(BigDecimal valorVenda) {
         this.valorVenda = valorVenda;
     }
 
