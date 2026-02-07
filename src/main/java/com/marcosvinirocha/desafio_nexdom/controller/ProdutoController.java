@@ -10,6 +10,8 @@ import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueResponseDTO;
 import com.marcosvinirocha.desafio_nexdom.entity.Produto;
 import com.marcosvinirocha.desafio_nexdom.service.ProdutoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
@@ -28,12 +30,12 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public Produto save(@RequestBody Produto produto) {
+    public Produto save(@Valid @RequestBody Produto produto) {
         return produtoService.save(produto);
     }
 
     @PutMapping("/{id}")
-    public Produto update(@PathVariable Long id, @RequestBody Produto produto) {
+    public Produto update(@PathVariable Long id, @Valid @RequestBody Produto produto) {
         return produtoService.update(id, produto);
     }
 

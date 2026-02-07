@@ -34,6 +34,7 @@ public class ProdutoService {
         Produto produtoExistente = produtoRespository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
         produtoExistente.setCodigo(produto.getCodigo());
+        produtoExistente.setDescricao(produto.getDescricao());
         produtoExistente.setQuantidadeEstoque(produto.getQuantidadeEstoque());
         produtoExistente.setTipo(produto.getTipo());
         produtoExistente.setValorFornecedor(produto.getValorFornecedor());

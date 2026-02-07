@@ -8,9 +8,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record produtoDTO(
-                @NotBlank(message = "Código é obrigatório") String codigo,
-                @NotNull(message = "Tipo é obrigatório") TipoProduto tipo,
-                @NotNull(message = "Valor do fornecedor é obrigatório") BigDecimal valorFornecedor,
-                @NotNull(message = "Quantidade em estoque é obrigatória") Integer quantidadeEstoque) {
+        @NotBlank(message = "Código é obrigatório") String codigo,
+        @NotBlank(message = "Descrição é obrigatória") String descricao,
+        @NotNull(message = "Tipo é obrigatório") TipoProduto tipo,
+        @NotNull(message = "Valor do fornecedor é obrigatório") BigDecimal valorFornecedor,
+        @NotNull(message = "Quantidade em estoque é obrigatória") Integer quantidadeEstoque) {
 
 }
