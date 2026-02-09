@@ -13,6 +13,8 @@ import com.marcosvinirocha.desafio_nexdom.dto.MovimentoEstoqueRequestDTO;
 import com.marcosvinirocha.desafio_nexdom.exception.EstoqueInsuficienteException;
 import com.marcosvinirocha.desafio_nexdom.service.MovimentacaoEstoqueService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/movimentacoes")
 public class MovimentacaoEstoqueController {
@@ -24,7 +26,7 @@ public class MovimentacaoEstoqueController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> movimentar(@RequestBody MovimentoEstoqueRequestDTO dto) {
+    public ResponseEntity<Object> movimentar(@Valid @RequestBody MovimentoEstoqueRequestDTO dto) {
         try {
             movimentacaoEstoqueService.movimentar(dto);
             return ResponseEntity.ok().build();
